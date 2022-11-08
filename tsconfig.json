@@ -22,7 +22,8 @@
     "baseUrl": "src",
     "paths": {
       "todo-list": ["todo-list/index.ts"],
-      "hooks": ["hooks/index.ts"]
+      "hooks": ["hooks/index.ts"],
+      "interfaces": ["interfaces/index.ts"]
     }
   },
   "include": [
