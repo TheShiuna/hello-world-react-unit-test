@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import * as Styled from './todo-list.styles';
 import { ToDoListInput } from './todo-list-input';
 import { Formik, Form, FieldArray } from 'formik';
-import { ITodoListValues } from './interfaces';
+import { ITodoListValues } from 'interfaces';
 import { ToDoListItems } from './todo-list-items';
 
 
@@ -24,18 +24,22 @@ export const TodoList = () => {
         <Form>
           <FieldArray
             name="items"
-            render={arrayHelper => (
+            render={({ push, remove, move }) => (
               <Styled.ContainerWrapper>
-                <Styled.Title>To Do :</Styled.Title>
+                <Styled.Title
+                  data-testid="todo-list-title"
+                >
+                  To Do :
+                </Styled.Title>
                 <ToDoListInput
                   resetForm={resetForm}
-                  arrayHelper={arrayHelper}
-                  values={values}
-                  />
+                  push={push}
+                />
                 <ToDoListItems
                   values={values}
-                  arrayHelper={arrayHelper}
-                  />
+                  remove={remove}
+                  move={move}
+                />
               </Styled.ContainerWrapper>
             )}
           />
